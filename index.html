@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#041629">
+  <meta name="description" content="Орфографические двойники: практика слитного, раздельного и дефисного написания в контексте.">
+  <title>Орфографические двойники · Практика</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css?v=theme-select-2">
+  <script defer src="./conjunctions-data.js"></script>
+  <script defer src="./prepositions-data.js"></script>
+  <script defer src="./adverbs-data.js"></script>
+  <script defer src="./progress-migration.js"></script>
+  <script defer src="./app.js?v=theme-select-2"></script>
+</head>
+<body>
+  <div class="cosmos" aria-hidden="true"></div>
+  <a class="skip" href="#exercise-title">К упражнению</a>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Орфографические двойники — главная">
+        <svg width="33" height="33" viewBox="0 0 33 33" aria-hidden="true"><rect x="1" y="1" width="31" height="31" rx="9" fill="#164d49"/><path d="M10 10v13m13-13v13M14 16.5h5" stroke="#f8f3e9" stroke-width="2"/></svg>
+        <span>ЕГЭ<span class="brand-number">14</span></span>
+      </a>
+      <span class="topbar-caption">Русский язык / практика</span>
+      <button class="button button-light journal-trigger" id="open-journal">Журнал ошибок <span id="error-count" class="count">0</span></button>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div><p class="eyebrow"><span class="dot"></span> Обучающий режим</p><h1 id="page-title">Орфографические<br><em>двойники</em></h1></div>
+        <div class="set-meta"><span id="set-size" class="large-number">62</span><span>карточки</span></div>
+      </section>
+
+      <nav class="theme-navigation" aria-label="Тематические блоки">
+        <label class="block-label" for="block-select">Тематический блок</label>
+        <select id="block-select" class="block-select">
+          <option value="conjunctions">Союзы</option>
+          <option value="prepositions">Предлоги</option>
+          <option value="adverbs">Наречия</option>
+        </select>
+      </nav>
+
+      <div id="storage-warning" class="notice" role="status" hidden>Браузер не разрешил сохранить прогресс. Практика работает до закрытия страницы.</div>
+      <div class="workspace">
+        <aside class="route" aria-label="Навигация по упражнениям">
+          <div class="route-title"><h2>Ваш маршрут</h2><span id="route-total">0 / 18</span></div>
+          <progress id="progress" max="18" value="0" aria-label="Проверенные примеры"></progress>
+          <nav id="exercise-nav" class="exercise-grid" aria-label="Выбрать пример"></nav>
+          <div class="route-legend"><span><i class="legend-dot done"></i>Без ошибок</span><span><i class="legend-dot revisit"></i>Вернуться</span></div>
+          <button id="reset" class="text-button">Сбросить упражнение <span aria-hidden="true">↺</span></button>
+        </aside>
+
+        <section class="exercise-area" aria-labelledby="exercise-title">
+          <article class="exercise-card">
+            <div class="card-heading"><h2 id="exercise-title" tabindex="-1">Союзы · Пример 01</h2><span class="quiet-label">Выбор написания</span></div>
+            <p id="sentence" class="sentence"></p>
+            <div class="answer-heading"><span class="eyebrow">Ваш вариант</span><span id="target-count-label" class="quiet-label">Выбор написания</span></div>
+            <form id="answer-form" novalidate>
+              <div id="choices" class="choices"></div>
+              <div class="actions"><span id="selection-status" class="selection-status" aria-live="polite">Выберите оба написания</span><button id="check" class="button button-primary" type="submit" disabled>Проверить <span aria-hidden="true">↗</span></button></div>
+            </form>
+            <section id="feedback" class="feedback" aria-labelledby="feedback-title" hidden><h3 id="feedback-title" tabindex="-1"></h3><div id="explanations"></div><button id="retry" class="text-button">Попробовать ещё раз</button></section>
+          </article>
+          <div class="exercise-footer"><button id="previous" class="button button-light"><span aria-hidden="true">←</span> Назад</button><span id="position" class="position">01 / 18</span><button id="next" class="button button-light">Далее <span aria-hidden="true">→</span></button></div>
+          <div id="completion" class="completion" role="status" hidden><strong>Все примеры пройдены.</strong><span>Можно вернуться к любому из них или разобрать журнал ошибок.</span></div>
+        </section>
+      </div>
+    </main>
+    <footer class="page-footer"><span>Орфографические двойники</span><span>Прогресс хранится только в этом браузере</span><span>Локальный прототип · 01</span></footer>
+  </div>
+
+  <dialog id="journal" class="journal-dialog" aria-labelledby="journal-title">
+    <div class="dialog-heading"><div><p class="eyebrow">Вернуться и разобраться</p><h2 id="journal-title">Журнал ошибок</h2></div><button id="close-journal" class="close-button" aria-label="Закрыть журнал">×</button></div>
+    <p id="journal-block" class="quiet-label"></p><div id="journal-content"></div>
+  </dialog>
+  <dialog id="reset-dialog" class="reset-dialog" aria-labelledby="reset-title">
+    <h2 id="reset-title">Начать заново?</h2><p>Ответы, прогресс и журнал ошибок этого набора будут очищены.</p><div class="dialog-actions"><button id="cancel-reset" class="button button-light" autofocus>Продолжить практику</button><button id="confirm-reset" class="button button-primary">Сбросить</button></div>
+  </dialog>
+  <noscript><p class="notice">Для проверки ответов включите JavaScript в браузере.</p></noscript>
+</body>
+</html>
